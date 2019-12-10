@@ -34,7 +34,7 @@
 <meta property="og:image" content="http:&#x2F;&#x2F;zone.secevery.com&#x2F;uploads&#x2F;article&#x2F;20191206&#x2F;9194226031cb4bac650f741a89f2aad3.png">
 <meta property="og:image" content="http:&#x2F;&#x2F;zone.secevery.com&#x2F;uploads&#x2F;article&#x2F;20191206&#x2F;42f1f5db1237c3274bc8e484b61b5261.png">
 <meta property="article:published_time" content="2019-12-10T01:42:12.000Z">
-<meta property="article:modified_time" content="2019-12-10T03:22:47.532Z">
+<meta property="article:modified_time" content="2019-12-10T03:24:39.683Z">
 <meta property="article:author" content="Zack">
 <meta property="article:tag" content="中间件漏洞">
 <meta name="twitter:card" content="summary">
@@ -355,7 +355,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-10 11:22:47'>2019-12-10 09:42</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-10 11:24:39'>2019-12-10 09:42</time>
         
     </div>
     <div class="article-meta">
@@ -377,7 +377,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、-常见web中间件及其漏洞概述"><span class="toc-text">一、 常见web中间件及其漏洞概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、-IIS漏洞分析"><span class="toc-text">二、 IIS漏洞分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）-IIS简介"><span class="toc-text">（一） IIS简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）-PUT漏洞"><span class="toc-text">（二） PUT漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）短文件名猜解"><span class="toc-text">（三）短文件名猜解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（四）-解析漏洞"><span class="toc-text">（四） 解析漏洞</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、-Apache漏洞分析"><span class="toc-text">三、 Apache漏洞分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）-Apache简介"><span class="toc-text">（一） Apache简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）-解析漏洞"><span class="toc-text">（二） 解析漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）-目录遍历"><span class="toc-text">（三） 目录遍历</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、-Nginx漏洞分析"><span class="toc-text">四、 Nginx漏洞分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）-Nginx简介"><span class="toc-text">（一） Nginx简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）文件解析"><span class="toc-text">（二）文件解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）目录遍历"><span class="toc-text">（三）目录遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（四）-CRLF注入"><span class="toc-text">（四） CRLF注入</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）-远程代码执行"><span class="toc-text">（二） 远程代码执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）war后门文件部署"><span class="toc-text">（三）war后门文件部署</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#一、-常见web中间件及其漏洞概述"><span class="toc-text">一、 常见web中间件及其漏洞概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#二、-IIS漏洞分析"><span class="toc-text">二、 IIS漏洞分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）-IIS简介"><span class="toc-text">（一） IIS简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）-PUT漏洞"><span class="toc-text">（二） PUT漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）短文件名猜解"><span class="toc-text">（三）短文件名猜解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（四）-解析漏洞"><span class="toc-text">（四） 解析漏洞</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#三、-Apache漏洞分析"><span class="toc-text">三、 Apache漏洞分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）-Apache简介"><span class="toc-text">（一） Apache简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）-解析漏洞"><span class="toc-text">（二） 解析漏洞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）-目录遍历"><span class="toc-text">（三） 目录遍历</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#四、-Nginx漏洞分析"><span class="toc-text">四、 Nginx漏洞分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）-Nginx简介"><span class="toc-text">（一） Nginx简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）文件解析"><span class="toc-text">（二）文件解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）目录遍历"><span class="toc-text">（三）目录遍历</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（四）-CRLF注入"><span class="toc-text">（四） CRLF注入</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#五、-Tomcat漏洞分析"><span class="toc-text">五、 Tomcat漏洞分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#（一）-Tomcat简介"><span class="toc-text">（一） Tomcat简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（二）-远程代码执行"><span class="toc-text">（二） 远程代码执行</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#（三）war后门文件部署"><span class="toc-text">（三）war后门文件部署</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -420,12 +420,8 @@ Nginx反向代理，静态文件存储在/home/下，而访问时需要在url中
 访问：http://xxxx/files../
 成功实现目录穿越：
  <img src="http://zone.secevery.com/uploads/article/20191206/255b43e72ede92ec8968513a91a099dd.png">
-# 五、 Tomcat漏洞分析
-## （一） Tomcat简介
-Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用 服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选。对于一个初学者来说，可以这样认为，当在一台机器上配置好Apache 服务器，可利用它响应 HTML （ 标准通用标记语言下的一个应用）页面的访问请求。实际上Tomcat是Apache 服务器的扩展，但运行时它是独立运行的，所以当运行tomcat 时，它实际上作为一个与Apache 独立的进程单独运行的。
 
-
-
+<h1 id="五、-Tomcat漏洞分析"><a href="#五、-Tomcat漏洞分析" class="headerlink" title="五、 Tomcat漏洞分析"></a>五、 Tomcat漏洞分析</h1><h2 id="（一）-Tomcat简介"><a href="#（一）-Tomcat简介" class="headerlink" title="（一） Tomcat简介"></a>（一） Tomcat简介</h2><p>Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用 服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选。对于一个初学者来说，可以这样认为，当在一台机器上配置好Apache 服务器，可利用它响应 HTML （ 标准通用标记语言下的一个应用）页面的访问请求。实际上Tomcat是Apache 服务器的扩展，但运行时它是独立运行的，所以当运行tomcat 时，它实际上作为一个与Apache 独立的进程单独运行的。</p>
 <h2 id="（二）-远程代码执行"><a href="#（二）-远程代码执行" class="headerlink" title="（二） 远程代码执行"></a>（二） 远程代码执行</h2><p>1、 漏洞简介及成因<br>Tomcat 运行在Windows 主机上，且启用了 HTTP PUT 请求方法，可通过构造的攻击请求向服务器上传包含任意代码的 JSP 文件，造成任意代码执行。<br>影响版本： Apache Tomcat 7.0.0 – 7.0.81<br>2、 漏洞复现<br>配置漏洞，开启put方法可上传文件功能。<br>tomcat文件夹下的/conf/web.xml文件插入：<br><img src="http://zone.secevery.com/uploads/article/20191206/3a289938b8d48a0523d5c1edff41b2fc.png"></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&lt;init-param&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">        &lt;param-name&gt;readonly&lt;&#x2F;param-name&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">        &lt;param-value&gt;false&lt;&#x2F;param-value&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">&lt;&#x2F;init-param&gt;</span></pre></td></tr></table></figure>
 
@@ -454,7 +450,7 @@ Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于
     
     <p><span class="copy-title">本文作者:</span><a  title="Zack">Zack</a></p>
     <p><span class="copy-title">发布时间:</span>2019-12-10, 09:42:12</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-10, 11:22:47</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-10, 11:24:39</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/10/Web%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/" title="Web中间件常见漏洞总结">http://zackerys.com/2019/12/10/Web%E4%B8%AD%E9%97%B4%E4%BB%B6%E5%B8%B8%E8%A7%81%E6%BC%8F%E6%B4%9E%E6%80%BB%E7%BB%93/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
