@@ -2,9 +2,9 @@
 <html>
 <head>
   <meta charset="utf-8">
-  <title>my-first-blo | Zack&#39;Blog</title>
-  <meta name="keywords" content=" 111 ">
-  <meta name="description" content="my-first-blo | Zack&#39;Blog">
+  <title>my-first-blog | Zack&#39;Blog</title>
+  <meta name="keywords" content=" 测试 ">
+  <meta name="description" content="my-first-blog | Zack&#39;Blog">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 <meta name="description" content="112233445">
 <meta property="og:type" content="article">
@@ -321,9 +321,9 @@
 </aside>
 <div class="post">
     <div class="pjax">
-        <article id="post-my-first-blo" class="article article-type-post" itemscope itemprop="blogPost">
+        <article id="post-my-first-blog" class="article article-type-post" itemscope itemprop="blogPost">
     
-        <h1 class="article-title">my-first-blo</h1>
+        <h1 class="article-title">my-first-blog</h1>
     
     <div class="article-meta">
         
@@ -338,14 +338,14 @@
         
         <span class="tag">
             
-            <a class="color4">111</a>
+            <a class="color3">测试</a>
             
         </span>
         
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-12-10 09:57:20'>2019-12-10 09:56</time>
+        创建时间:<time class="date" title='更新时间: 2019-12-10 10:36:26'>2019-12-10 09:42</time>
         
     </div>
     <div class="article-meta">
@@ -383,7 +383,32 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>112233445</p>
+        <p>一、 常见web中间件及其漏洞概述<br>（一） IIS<br>1、PUT漏洞<br>2、短文件名猜解<br>3、远程代码执行<br>4、解析漏洞<br>（二） Apache<br>1、解析漏洞<br>2、目录遍历<br>（三） Nginx<br>1、文件解析<br>2、目录遍历<br>3、CRLF注入<br>4、目录穿越<br>（四）Tomcat<br>1、远程代码执行<br>2、war后门文件部署<br>二、 IIS漏洞分析<br>（一） IIS简介<br>IIS是Internet Information Services的缩写，意为互联网信息服务，是由微软公司提供的基于运行Microsoft Windows的互联网基本服务。最初是Windows NT版本的可选包，随后内置在Windows 2000、Windows XP Professional和Windows Server 2003一起发行，但在Windows XP Home版本上并没有IIS。IIS是一种Web（网页）服务组件，其中包括Web服务器、FTP服务器、NNTP服务器和SMTP服务器，分别用于网页浏览、文件传输、新闻服务和邮件发送等方面，它使得在网络（包括互联网和局域网）上发布信息成了一件很容易的事。<br>IIS的安全脆弱性曾长时间被业内诟病，一旦IIS出现远程执行漏洞威胁将会非常严重。远程执行代码漏洞存在于 HTTP 协议堆栈 (HTTP.sys) 中，当 HTTP.sys 未正确分析经特殊设计的 HTTP 请求时会导致此漏洞。成功利用此漏洞的攻击者可以在系统帐户的上下文中执行任意代码，可以导致IIS服务器所在机器蓝屏或读取其内存中的机密数据<br>（二） PUT漏洞<br>1、漏洞介绍及成因<br>IIS Server 在 Web 服务扩展中开启了 WebDAV ，配置了可以写入的权限，造成任意文件上传。<br>版本： IIS6.0<br>2、漏洞复现<br>1） 开启WebDAV 和写权限</p>
+<p>2)  使用工具，选择options方法探测主机所支持的请求方法</p>
+<p>3）利用工具进行测试<br>选用PUT方法上传muma.txt文件,里面内容为一句话木马。</p>
+<p>这个时候可以看到服务器上有了我们刚刚PUT上去的文件</p>
+<p>如果服务器开放了脚本资源访问的权限   我们就可以用move的方法把webshell.txt变成shell.asp</p>
+<p>然后我们就可以看到服务器上就多了一个shell.asp</p>
+<p>然后我们用菜刀进行连接查看</p>
+<p>（二）短文件名猜解<br>1、漏洞介绍及成因<br>IIS的短文件名机制，可以暴力猜解短文件名，访问构造的某个存在的短文件名，会返回404，访问构造的某个不存在的短文件名，返回400。<br>2、漏洞复现<br>1）、在网站根目录下添加aaaaaaaaaa.html文件</p>
+<p>3） 进行猜解<br>漏洞的利用，需要使用到通配符<em>。在windows中，</em>可以匹配n个字符，n可以为0. 判断某站点是否存在IIS短文件名暴力破解，构造payload</p>
+<p>（四） 解析漏洞<br>1、 漏洞介绍及成因<br>IIS 6.0 在处理含有特殊符号的文件路径时会出现逻辑错误，从而造成文件解析漏洞。这一漏洞有两种完全不同的利用方式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;test.asp&#x2F;test.jpg</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">test.asp;.jpg</span></pre></td></tr></table></figure>
+<p>2、漏洞复现<br>利用方式 1<br>第一种是新建一个名为 “test.asp” 的目录，该目录中的任何文件都被 IIS 当作 asp 程序执行（特殊符号是 “/” ）<br>利用方式 2<br>第二种是上传名为 “test.asp;.jpg” 的文件，虽然该文件真正的后缀名是 “.jpg”, 但由于含有特殊符号 “;” ，仍会被 IIS 当做 asp 程序执行<br>IIS7.5 文件解析漏洞<br>test.jpg/.php<br>URL 中文件后缀是 .php ，便无论该文件是否存在，都直接交给 php 处理，而 php 又默认开启 “cgi.fix_pathinfo”, 会对文件进行 “ 修理 ” ，可谓 “ 修理 ” ？举个例子，当 php 遇到路径 “/aaa.xxx/bbb.yyy” 时，若 “/aaa.xxx/bbb.yyy” 不存在，则会去掉最后的 “bbb.yyy” ，然后判断 “/aaa.xxx” 是否存在，若存在，则把 “/aaa.xxx” 当作文件。<br>若有文件 test.jpg ，访问时在其后加 /.php ，便可以把 “test.jpg/.php” 交给 php ， php 修理文件路径 “test.jpg/.php” 得到 ”test.jpg” ，该文件存在，便把该文件作为 php 程序执行了。<br>三、 Apache漏洞分析<br>（一） Apache简介<br>Apache 是世界使用排名第一的Web 服务器软件。它可以运行在几乎所有广泛使用的 计算机平台上，由于其 跨平台 和安全性被广泛使用，是最流行的Web服务器端软件之一。它快速、可靠并且可通过简单的API扩充，将 Perl/ Python等 解释器编译到服务器中。<br>（二） 解析漏洞</p>
+<p>1、 漏洞介绍及成因<br>Apache文件解析漏洞与用户的配置有密切关系，严格来说属于用户配置问题。<br>Apache文件解析漏洞涉及到一个解析文件的特性：<br>Apache默认一个文件可以有多个以点分隔的后缀，当右边的后缀无法识别（不在mime.tyoes内），则继续向左识别，当我们请求这样一个文件：shell.xxx.yyy<br>yyy-&gt;无法识别，向左<br>xxx-&gt;无法识别，向左<br>php-&gt;发现后缀是php，交给php处理这个文件<br>（三） 目录遍历<br>1、 漏洞介绍及成因<br>由于配置错误导致的目录遍历<br>四、 Nginx漏洞分析<br>（一） Nginx简介<br>Nginx 是一款 轻量级的 Web 服务器、 反向代理 服务器及 电子邮件（IMAP/POP3）代理服务器，并在一个BSD-like 协议下发行。其特点是占有内存少， 并发能力强，事实上nginx的并发能力确实在同类型的网页服务器中表现较好<br>（二）文件解析<br>1、 漏洞介绍及成因<br>对任意文件名，在后面添加/任意文件名.php的解析漏洞，比如原本文件名是test.jpg，可以添加test.jpg/x.php进行解析攻击。<br>（三）目录遍历<br>1、 漏洞简介及成因<br>Nginx的目录遍历与Apache一样，属于配置方面的问题，错误的配置可到导致目录遍历与源码泄露<br>（四） CRLF注入<br>1、 漏洞简介及成因<br>CRLF时“回车+换行”（\r\n）的简称。<br>HTTP Header与HTTP Body时用两个CRLF分隔的，浏览器根据两个CRLF来取出HTTP内容并显示出来。<br>通过控制HTTP消息头中的字符，注入一些恶意的换行，就能注入一些会话cookie或者html代码，由于Nginx配置不正确，导致注入的代码会被执行。<br>2、 漏洞复现<br>版本：Nginx 1.9.9<br>访问页面，抓包<br>请求加上</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">&#x2F;%0d%0a%0d%0a&lt;img src&#x3D;1 οnerrοr&#x3D;alert(&#x2F;xss&#x2F;)&gt;</span></pre></td></tr></table></figure>
+<p>（五） 目录穿越<br>1、 漏洞简介及成因<br>Nginx反向代理，静态文件存储在/home/下，而访问时需要在url中输入files，配置文件中/files没有用/闭合，导致可以穿越至上层目录。<br>2、 漏洞复现<br>修改nginx.conf,在如下图位置添加如下配置</p>
+<p>访问：<a href="http://xxxx/files/" target="_blank" rel="noopener">http://xxxx/files/</a></p>
+<p>访问：<a href="http://xxxx/files../" target="_blank" rel="noopener">http://xxxx/files../</a><br>成功实现目录穿越：</p>
+<p>五、 Tomcat漏洞分析<br>（一） Tomcat简介<br>Tomcat 服务器是一个免费的开放源代码的Web 应用服务器，属于轻量级应用 服务器，在中小型系统和并发访问用户不是很多的场合下被普遍使用，是开发和调试JSP 程序的首选。对于一个初学者来说，可以这样认为，当在一台机器上配置好Apache 服务器，可利用它响应 HTML （ 标准通用标记语言下的一个应用）页面的访问请求。实际上Tomcat是Apache 服务器的扩展，但运行时它是独立运行的，所以当运行tomcat 时，它实际上作为一个与Apache 独立的进程单独运行的。</p>
+<p>（二） 远程代码执行<br>1、 漏洞简介及成因<br>Tomcat 运行在Windows 主机上，且启用了 HTTP PUT 请求方法，可通过构造的攻击请求向服务器上传包含任意代码的 JSP 文件，造成任意代码执行。<br>影响版本： Apache Tomcat 7.0.0 – 7.0.81<br>2、 漏洞复现<br>配置漏洞，开启put方法可上传文件功能。<br>tomcat文件夹下的/conf/web.xml文件插入：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span></pre></td><td class="code"><pre><span class="line">   &lt;init-param&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">2</span></pre></td><td class="code"><pre><span class="line">           &lt;param-name&gt;readonly&lt;&#x2F;param-name&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">3</span></pre></td><td class="code"><pre><span class="line">           &lt;param-value&gt;false&lt;&#x2F;param-value&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">4</span></pre></td><td class="code"><pre><span class="line">     &lt;&#x2F;init-param&gt;</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">5</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">6</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">7</span></pre></td><td class="code"><pre><span class="line">重启tomcat服务。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">8</span></pre></td><td class="code"><pre><span class="line">访问http:&#x2F;&#x2F;xxxx:8080，burp抓包，将请求方式改为PUT，创建一个123.jsp，并用%20转义空格字符。</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">9</span></pre></td><td class="code"><pre><span class="line">123.jsp内容为</span></pre></td></tr><tr><td class="gutter"><pre><span class="line">10</span></pre></td><td class="code"><pre><span class="line"></span></pre></td></tr><tr><td class="gutter"><pre><span class="line">11</span></pre></td><td class="code"><pre><span class="line">&lt;%Runtime.getRuntime().exec(request.getParameter(&quot;cmd&quot;));%&gt;</span></pre></td></tr></table></figure>
+<p>返回201，说明创建成功。<br>服务器上已经存在文件</p>
+<p>访问<a href="http://xxxx:8080/123.jsp?cmd=calc" target="_blank" rel="noopener">http://xxxx:8080/123.jsp?cmd=calc</a><br>弹出计算器：</p>
+<p>（三）war后门文件部署<br>1、漏洞简介及成因<br>Tomcat 支持在后台部署war文件，可以直接将webshell部署到web目录下。<br>若后台管理页面存在弱口令，则可以通过爆破获取密码。<br>2、漏洞复现<br>Tomcat安装目录下conf里的tomcat-users.xml配置如下：</p>
+<p>访问后台，登陆：</p>
+<p>上传一个war包，里面是jsp后门：</p>
+<p>我上传的是一句话木马，然后用菜刀连接：</p>
 
       
        <hr><span style="font-style: italic;color: gray;"> 转载请注明来源，欢迎对文章中的引用来源进行考证，欢迎指出任何有错误或不够清晰的表达。 </span>
@@ -393,12 +418,12 @@
 
 
 <div class="article_copyright">
-    <p><span class="copy-title">文章标题:</span>my-first-blo</p>
+    <p><span class="copy-title">文章标题:</span>my-first-blog</p>
     
     <p><span class="copy-title">本文作者:</span><a  title="Zack">Zack</a></p>
-    <p><span class="copy-title">发布时间:</span>2019-12-10, 09:56:43</p>
-    <p><span class="copy-title">最后更新:</span>2019-12-10, 09:57:20</p>
-    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/10/my-first-blo/" title="my-first-blo">http://zackerys.com/2019/12/10/my-first-blo/</a>
+    <p><span class="copy-title">发布时间:</span>2019-12-10, 09:42:12</p>
+    <p><span class="copy-title">最后更新:</span>2019-12-10, 10:36:26</p>
+    <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/12/10/my-first-blog/" title="my-first-blog">http://zackerys.com/2019/12/10/my-first-blog/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license noopener" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
     </p>
